@@ -4,3 +4,7 @@ for i in range(100):
 	if i == 50:
 		print " midway"
 		
+
+kdjlfkj
+lkjfldkj
+print " kdlfjlsf "
