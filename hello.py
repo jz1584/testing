@@ -1,6 +1,9 @@
 import random
+position=0
+walk=[position]
+steps=100
 
-for i in range(10):
+for i in range(steps):
 	a=random.randint(0,1)
 	if a==1:
 		step=1
@@ -10,6 +13,9 @@ for i in range(10):
 		
 	else:	
 		print " error"
-	print i, a, step
+	position+=step
+	walk.append(position)
+
+print walk
 
 
