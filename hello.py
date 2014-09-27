@@ -1,12 +1,15 @@
-#! /usr/bin/env python
-
-
-L=list()
+import random
 
 for i in range(10):
-	L.append(i)
-	
+	a=random.randint(0,1)
+	if a==1:
+		step=1
 
-print L 
+	elif a==0:
+		step=-1
+		
+	else:	
+		print " error"
+	print i, a, step
 
-	
+
