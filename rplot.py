@@ -15,5 +15,5 @@ def plot(trails,size):
 	plt.show()
 
 
-plot(100,1)
+plot(10,1000)
 
