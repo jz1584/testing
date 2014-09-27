@@ -1,7 +1,8 @@
 import random
+import matplotlib.pyplot as plt
 position=0
 walk=[position]
-steps=100
+steps=1000
 
 for i in range(steps):
 	a=random.randint(0,1)
@@ -16,6 +17,12 @@ for i in range(steps):
 	position+=step
 	walk.append(position)
 
-print walk
+
+
+plt.plot(walk)
+plt.ylabel("walk direction")
+plt.xlabel("walking steps")
+plt.show()
+
 
 
