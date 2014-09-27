@@ -1,14 +1,19 @@
-import random
+from ranwalk import *
 import matplotlib.pyplot as plt
 
 #plotting 2 lines 
-def plot(walk1,walk2):
-	plt.plot(walk1)
-	plt.plot(walk2)
-       
+def plot(trails,size):
+	data=[]
+	for i in range(trails):
+    		data.append(rwalk(size))
+
+
+	for i in data:
+		plt.plot(i)
 	plt.ylabel("walk direction")
 	plt.xlabel("walking steps")
 	plt.show()
 
 
+plot(100,1)
 
