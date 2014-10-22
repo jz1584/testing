@@ -6,23 +6,29 @@ Just trying to write the math algorithm in  in python
 """
 x=Symbol('x')
 y=Symbol('y')
-y=x**4 + 1
+def f(x):
+    a=x**2+2*x+ 1
+    return a 
+
+def g(x):
+    return 2*x+2
+y=x**2+2*x+ 1
 
 
 
-def Grad_decent(init_x, f, alpha):
+def Grad_decent(init_x,alpha):
     " this function will return approximately the min value of function"
-    derivative=diff(f,x)
-    #print derivative.subs(x,init_x)
     
-    if derivative.subs(x,init_x) >0.01:
-        init_x-=alpha*derivative.subs(x,init_x)
+    if abs(g(init_x)) >0.0000000001:
+        init_x-=alpha*g(init_x)
         print  init_x
-        return Grad_decent(init_x,f,alpha)  
+        return Grad_decent(init_x,alpha)  
     else:
-        return f.subs(x,init_x)
+        print init_x
+        a=f(init_x)
+        print a
     
-print Grad_decent(4,y,0.01)
+Grad_decent(-100,.07)
 
 
 
