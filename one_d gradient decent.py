@@ -1,36 +1,54 @@
-from sympy import * 
+import matplotlib.pyplot as plt
+import sys
+import numpy as np
+
 """
 This function is to approximate the min of a function
 by using simple 1-D Gradient Descent 
 Just trying to write the math algorithm in  in python
 """
-x=Symbol('x')
-y=Symbol('y')
 def f(x):
-    a=x**2+2*x+ 1
+    a=x**4+2*x+ 1
     return a 
 
-def g(x):
-    return 2*x+2
-y=x**2+2*x+ 1
+def derivative_f(x):
+    return 4*x**3+2
+x_value=[]
 
-
-
-def Grad_decent(init_x,alpha):
+def Grad_decent(init_x,step):
     " this function will return approximately the min value of function"
     
-    if abs(g(init_x)) >0.0000000001:
-        init_x-=alpha*g(init_x)
+    if abs(derivative_f(init_x)) >0.00001:
+        init_x-=step*derivative_f(init_x)
         print  init_x
-        return Grad_decent(init_x,alpha)  
+        x_value.append(init_x)
+        return Grad_decent(init_x,step)  
     else:
-        print init_x
+        #x_round=round(init_x,2)
+        #x_value.append(x_round)
         a=f(init_x)
-        print a
+        print "the Mini of f(x) is %d" % a
     
-Grad_decent(-100,.07)
+Grad_decent(6,0.01)
+
+"""
+plotting result
+"""
 
 
+plt.plot(x_value)
+plt.ylabel("x_value")
+plt.xlabel("steps")
 
+plt.show()
+"""
+x_list=[i for i in np.arange(-5,5,0.01)]
+print x_list 
+y_list=[]
+for i in x_list:
+    y_list.append(f(i))
 
+plt.plot(x_list,y_list)
+plt.show()
+"""
 
